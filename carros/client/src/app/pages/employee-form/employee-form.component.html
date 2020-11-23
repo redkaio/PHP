@@ -1,0 +1,111 @@
+<p-card header="Formulário de Funcionários">
+    <div class="ui-g ui-fluid p-formgrid">
+        <form [formGroup]="form" (submit)="salvar()">
+            <p-fieldset legend="Informações Pessoais">
+                <div class="ui-g-12 ui-md-12 ui-sm-12">
+                    <span class="p-field">
+                        <input formControlName="name" pInputText type="text" />
+                        <label>Nome</label>
+                    </span>
+                </div>
+                <div class="ui-g-6 ui-md-6 ui-sm-12">
+                    <span class="p-field">
+                        <p-inputMask formControlName="cpf" mask="999.999.999-99" unmask="true"></p-inputMask>
+                        <label>CPF</label>
+                    </span>
+                </div>
+                <div class="ui-g-3 ui-md-3 ui-sm-12">
+                    <span class="p-field">
+                        <p-calendar dateFormat="yy-mm-dd" readonlyInput="true" yearNavigator="true" [yearRange]="years"
+                            formControlName="birth" pInputText type="text"></p-calendar>
+                        <label>Data aniversário</label>
+                    </span>
+                </div>
+                <div class="ui-g-3 ui-md-3 ui-sm-12">
+                    <span class="p-field">
+                        <p-dropdown [options]="gender" formControlName="gender"></p-dropdown>
+                        <label>Sexo</label>
+                    </span>
+                </div>
+            </p-fieldset>
+
+
+            <p-fieldset legend="Endereço">
+                <div class="ui-g-4 ui-md-4 ui-sm-12">
+                    <span class="p-field">
+                        <input formControlName="street" pInputText type="text" />
+                        <label>Rua</label>
+                    </span>
+                </div>
+                <div class="ui-g-4 ui-md-4 ui-sm-12">
+                    <span class="p-field">
+                        <input formControlName="district" pInputText type="text" />
+                        <label>Bairro</label>
+                    </span>
+                </div>
+                <div class="ui-g-4 ui-md-4 ui-sm-12">
+                    <span class="p-field">
+                        <p-inputNumber formControlName="number"></p-inputNumber>
+                        <label>Número</label>
+                    </span>
+                </div>
+                <div class="ui-g-6 ui-md-6 ui-sm-12">
+                    <span class="p-field">
+                        <input formControlName="city" pInputText type="text" />
+                        <label>Cidade</label>
+                    </span>
+                </div>
+                <div class="ui-g-6 ui-md-6 ui-sm-12">
+                    <span class="p-field">
+                        <input formControlName="state" pInputText type="text" />
+                        <label>UF</label>
+                    </span>
+                </div>
+                <div class="ui-g-6 ui-md-6 ui-sm-12">
+                    <span class="p-field">
+                        <p-inputMask formControlName="cep" mask="99999-999" unmask="true"></p-inputMask>
+                        <label>CEP</label>
+                    </span>
+                </div>
+                <div class="ui-g-6 ui-md-6 ui-sm-12">
+                        <p-button label="Pesquisar" type="button" (onClick)="buscaCep()"></p-button>
+                </div>
+            </p-fieldset>
+
+            <p-fieldset legend="Empresa">
+                <div class="ui-g-4 ui-md-4 ui-sm-12">
+                    <span class="p-field">
+                        <input formControlName="role" pInputText type="text" />
+                        <label>Cargo</label>
+                    </span>
+                </div>
+                <div class="ui-g-4 ui-md-4 ui-sm-12">
+                    <span class="p-field">
+                        <p-dropdown [options]="branches" [filter]="true" formControlName="branch_id"></p-dropdown>
+                        <label>Filial</label>
+                    </span>
+                </div>
+                <div class="ui-g-4 ui-md-4 ui-sm-12">
+                    <span class="p-field">
+                        <p-inputNumber mode="currency" currency="BRL" formControlName="salary">
+                        </p-inputNumber>
+                        <label>Salário</label>
+                    </span>
+                </div>
+            </p-fieldset>
+
+            <ng-template [ngIf]="update">
+                <p-fieldset>
+                    <div class="ui-g-6 ui-md-6 ui-sm-12">
+                        <span class="p-field">
+                            <p-dropdown [options]="situation" formControlName="situation"></p-dropdown>
+                            <label>Status</label>
+                        </span>
+                    </div>
+                </p-fieldset>
+            </ng-template>
+            <br>
+            <p-button type="submit" label="Salvar"></p-button>
+        </form>
+    </div>
+</p-card>

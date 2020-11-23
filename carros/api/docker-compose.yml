@@ -1,0 +1,38 @@
+version: '3.5'
+
+services:
+  app:
+    build:
+      context: '.'
+      args:
+        uid: 1000
+    container_name: concessionaria
+    environment:
+      - APACHE_RUN_USER=#1000
+      - APACHE_RUN_GROUP=#1000
+    volumes:
+      - .:/var/www/html
+    ports:
+      - 8000:80
+    networks:
+      backend:
+        aliases:
+          - app
+
+  mysql-db:
+    image: mysql:5.7
+    container_name: concessionaria-db
+    environment:
+      - MYSQL_ROOT_PASSWORD=&3L8K3&&mh
+      - MYSQL_DATABASE=concessionaria
+      - MYSQL_USER=usr_desenv
+      - MYSQL_PASSWORD=usr_desenv
+    ports:
+      - 3306:3306
+    networks:
+      backend:
+        aliases:
+          - db
+networks:
+  backend:
+    name: backend-network

@@ -1,0 +1,34 @@
+<p-card header="Bem Vindo">
+    <br>
+        <p-fieldset legend="Links">
+            <p-accordion>
+                <p-accordionTab header="Funcionarios">
+                    <h3>
+                        <a href="funcionarios">Listagem</a><br>
+                    </h3>
+                    <h3>
+                        <a href="funcionario\novo">Nova Entrada</a><br>
+                    </h3>
+                </p-accordionTab>
+                <p-accordionTab header="Filiais">
+                    <h3>
+                        <a href="filiais">Listagem</a><br>
+                    </h3>
+                    <h3>
+                        <a href="filial\novo">Nova Entrada</a><br>
+                    </h3>
+                </p-accordionTab>
+                <p-accordionTab header="Veiculos">
+                    <h3>
+                        <a href="veiculos">Listagem</a><br>
+                    </h3>
+                    <h3>
+                        <a href="veiculo\novo">Nova Entrada</a><br>
+                    </h3>
+                </p-accordionTab>
+            </p-accordion>
+        </p-fieldset>
+        <p-fieldset legend="Deseja sair?">
+            <p-button type="button" (onClick)="logout()" label="Deslogar"></p-button>
+        </p-fieldset>
+</p-card>

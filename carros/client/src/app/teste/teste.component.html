@@ -1,0 +1,13 @@
+<ul>
+    <li>{{ numero.id }}</li>
+    <li>{{ numero.nome }}</li>
+    <li (mouseout)="testeClick()">{{var1}}</li>
+    <li>4</li>
+    <li>5</li>
+</ul>
+
+<ul *ngFor="let num of numerosArray">
+    <li *ngIf="num >= 3 && num < 5">
+        {{num}}
+    </li>
+</ul>

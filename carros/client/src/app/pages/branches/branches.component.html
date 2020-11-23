@@ -1,0 +1,48 @@
+<p-card>
+    <p-header>
+        <div style="margin: auto 1em;">
+            <h1 style="text-align: center;">Filiais</h1>
+            <button icon="pi pi-plus" style="width: 100px;" pButton label="Novo" class="ui-button-rounded" routerLink="/filial/novo"></button>
+        </div>
+        </p-header>
+        <p-table [value]="listaBranches" [paginator]="true" [rows]="10" [responsive]="true" [autoLayout]="true">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Nome</th>
+                    <th>IE</th>
+                    <th>CNPJ</th>
+                    <th>Ações</th>
+                </tr>
+            </ng-template>
+
+            <ng-template pTemplate="body" let-branch>
+                <tr>
+                    <td>
+                        <span class="ui-column-title">Nome</span>
+                        {{ branch.name }}
+                    </td>
+                    <td>
+                        <span class="ui-column-title">IE</span>
+                        {{ branch.ie }}
+                    </td>
+                    <td>
+                        <span class="ui-column-title">CNPJ</span>
+                        {{ branch.cnpj | cnpj}}
+                    </td>
+                    <td>
+                        <span class="ui-column-title">Ações</span>
+                        <button pButton icon="pi pi-check" [routerLink]="['/filial', branch.id]"></button>
+                        <button pButton icon="pi pi-times" (click)="excluir(branch.id)"></button>
+                    </td>
+                </tr>
+            </ng-template>
+
+            <ng-template pTemplate="emptymessage">
+                <tr>
+                    <td [attr.colspan]="5">
+                        <p style="text-align: center;">Nenhuma filial cadastrada</p>
+                    </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</p-card>

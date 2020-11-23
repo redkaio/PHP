@@ -1,0 +1,22 @@
+<p-card header="Login">
+    <div class="ui-g ui-fluid p-formgrid">
+        <form [formGroup]="form" (submit)="login()">
+            <p-fieldset legend="Dados de Login">
+                <div class="ui-g-6 ui-md-6 ui-sm-12">
+                    <span class="p-field">
+                        <input formControlName="name" pInputText type="text" />
+                        <label>Nome</label>
+                    </span>
+                </div>
+                <div class="ui-g-6 ui-md-6 ui-sm-12">
+                    <span class="p-field">
+                        <input formControlName="password" pInputText type="password" />
+                        <label>Senha</label>
+                    </span>
+                </div>
+            </p-fieldset>
+            <br>
+            <p-button type="submit" label="Salvar"></p-button>
+        </form>
+    </div>
+</p-card>

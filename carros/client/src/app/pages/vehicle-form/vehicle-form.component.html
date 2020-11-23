@@ -1,0 +1,56 @@
+<p-card header="Formulário de Automoveis">
+    <div class="ui-g ui-fluid p-formgrid">
+        <form [formGroup]="form" (submit)="salvar()">
+            <p-fieldset>
+                <div class="ui-g-4 ui-md-4 ui-sm-12">
+                    <span class="p-field">
+                        <input formControlName="name" pInputText type="text" />
+                        <label>Nome</label>
+                    </span>
+                </div>
+                <div class="ui-g-6 ui-md-6 ui-sm-12">
+                    <span class="p-field">
+                        <input formControlName="model" pInputText type="text" />
+                        <label>Modelo</label>
+                    </span>
+                </div>
+                <div class="ui-g-2 ui-md-2 ui-sm-12">
+                    <span class="p-field">
+                        <input formControlName="year" pInputText type="text" />
+                        <label>Ano</label>
+                    </span>
+                </div>
+                <div class="ui-g-6 ui-md-6 ui-sm-12">
+                    <span class="p-field">
+                        <input formControlName="color" pInputText type="text" />
+                        <label>Cor</label>
+                    </span>
+                </div>
+                <div class="ui-g-6 ui-md-6 ui-sm-12">
+                    <span class="p-field">
+                        <p-dropdown [options]="category" formControlName="category"></p-dropdown>
+                        <label>Categoria</label>
+                    </span>
+                </div>
+            </p-fieldset>
+
+
+            <p-fieldset>
+                <div class="ui-g-4 ui-md-4 ui-sm-12">
+                    <span class="p-field">
+                        <p-inputMask formControlName="vim" mask="*****************" unmask="true"></p-inputMask>
+                        <label>VIN</label>
+                    </span>
+                </div>
+                <div class="ui-g-4 ui-md-4 ui-sm-12">
+                    <span class="p-field">
+                        <p-dropdown [options]="branches" [filter]="true" formControlName="branch_id"></p-dropdown>
+                        <label>Filial</label>
+                    </span>
+                </div>
+            </p-fieldset>
+            <br>
+            <p-button type="submit" label="Salvar"></p-button>
+        </form>
+    </div>
+</p-card>

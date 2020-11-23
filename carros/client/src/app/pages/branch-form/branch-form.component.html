@@ -1,0 +1,69 @@
+<p-card header="Formulário de Filial">
+    <div class="ui-g ui-fluid p-formgrid">
+        <form [formGroup]="form" (submit)="salvar()">
+            <p-fieldset legend="Informações Filial">
+                <div class="ui-g-6 ui-md-6 ui-sm-12">
+                    <span class="p-field">
+                        <input formControlName="name" pInputText type="text" />
+                        <label>Nome</label>
+                    </span>
+                </div>
+                <div class="ui-g-6 ui-md-6 ui-sm-12">
+                    <span class="p-field">
+                        <p-inputMask formControlName="cnpj" mask="99.999.999/9999-99" unmask="true"></p-inputMask>
+                        <label>CNPJ</label>
+                    </span>
+                </div>
+                <div class="ui-g-6 ui-md-6 ui-sm-12">
+                    <span class="p-field">
+                        <p-inputMask formControlName="ie" mask="999999999" unmask="true"></p-inputMask>
+                        <label>IE</label>
+                    </span>
+                </div>
+            </p-fieldset>
+            <p-fieldset legend="Endereço">
+                <div class="ui-g-4 ui-md-4 ui-sm-12">
+                    <span class="p-field">
+                        <input formControlName="street" pInputText type="text" />
+                        <label>Rua</label>
+                    </span>
+                </div>
+                <div class="ui-g-4 ui-md-4 ui-sm-12">
+                    <span class="p-field">
+                        <input formControlName="district" pInputText type="text" />
+                        <label>Bairro</label>
+                    </span>
+                </div>
+                <div class="ui-g-4 ui-md-4 ui-sm-12">
+                    <span class="p-field">
+                        <p-inputNumber formControlName="number"></p-inputNumber>
+                        <label>Número</label>
+                    </span>
+                </div>
+                <div class="ui-g-6 ui-md-6 ui-sm-12">
+                    <span class="p-field">
+                        <input formControlName="city" pInputText type="text" />
+                        <label>Cidade</label>
+                    </span>
+                </div>
+                <div class="ui-g-6 ui-md-6 ui-sm-12">
+                    <span class="p-field">
+                        <input formControlName="state" pInputText type="text" />
+                        <label>UF</label>
+                    </span>
+                </div>
+                <div class="ui-g-6 ui-md-6 ui-sm-12">
+                    <span class="p-field">
+                        <p-inputMask formControlName="cep" mask="99999-999" unmask="true"></p-inputMask>
+                        <label>CEP</label>
+                    </span>
+                </div>
+                <div class="ui-g-6 ui-md-6 ui-sm-12">
+                    <p-button label="Pesquisar" type="button" (onClick)="buscaCep()"></p-button>
+                </div>
+            </p-fieldset>
+            <br>
+            <p-button type="submit" label="Salvar"></p-button>
+        </form>
+    </div>
+</p-card>

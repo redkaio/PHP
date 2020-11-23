@@ -1,0 +1,60 @@
+<p-card>
+    <p-header>
+        <div style="margin: auto 1em;">
+            <h1 style="text-align: center;">Funcionarios</h1>
+            <button icon="pi pi-plus" style="width: 100px;" pButton
+                label="Novo" class="ui-button-rounded" routerLink="/funcionario/novo"></button>
+        </div>
+    </p-header>
+    <p-table [value]="listaEmployees" [paginator]="true" [rows]="10" [responsive]="true" [autoLayout]="true">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Nome</th>
+                <th>Status</th>
+                <th>Cargo</th>
+                <th>CPF</th>
+                <th>Filial</th>
+                <th>Ações</th>
+            </tr>
+        </ng-template>
+
+        <ng-template pTemplate="body" let-employee>
+            <tr>
+                <td>
+                    <span class="ui-column-title">Nome</span>
+                    {{ employee.name }}
+                </td>
+                <td>
+                    <span class="ui-column-title">Situação</span>
+                    {{ employee.situation }}
+                </td>
+                <td>
+                    <span class="ui-column-title">Cargo</span>
+                    {{ employee.role }}
+                </td>
+                <td>
+                    <span class="ui-column-title">CPF</span>
+                    {{ employee.cpf | cpf }}
+                </td>
+                <td>
+                    <span class="ui-column-title">Filial</span>
+                    <a href="filial\{{ employee.branch_id }}">{{ employee.branch_id }}</a>
+
+                </td>
+                <td>
+                    <span class="ui-column-title">Ações</span>
+                    <button pButton icon="pi pi-check" [routerLink]="['/funcionario', employee.id]"></button>
+                    <button pButton icon="pi pi-times" (click)="excluir(employee.id)"></button>
+                </td>
+            </tr>
+        </ng-template>
+
+        <ng-template pTemplate="emptymessage">
+            <tr>
+                <td [attr.colspan]="5">
+                    <p style="text-align: center;">Nenhum funcionário cadastrado</p>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</p-card>
